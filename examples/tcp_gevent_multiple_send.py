@@ -1,22 +1,28 @@
 import os, sys
 sys.path.append("..")
 from riemann import RiemannClient
-from riemann.gevent_transport import RiemannGEventTCPTransport
 import time
+import gevent
+from gevent import pool
+from gevent import monkey
+gevent.monkey.patch_all()
+
+def _s(pars):
+    rc = RiemannClient()
+    r = rc.send(pars)
+    # do something with r
 
 def main():
-    rc = RiemannClient(transport=RiemannGEventTCPTransport)
     tb = time.time()
+    p = pool.Group()
 
     for n in xrange(100):
-        rc.send({'host':'127.0.0.1', 'service': 'www%d' % n, 'state': 'down', 'metric_f': 10000})
+        pars = {'host':'127.0.0.1', 'service': 'www%d' % n, 'state': 'down', 'metric_f': 10000}
+        c = p.spawn(_s, pars)
     
-    print time.time() - tb
+    p.join()
 
-    res = rc.query('service')
-    print res
-    if res is not None:
-        for e in res.events: print e.host
+    print time.time() - tb
 
 
 if __name__ == '__main__':

@@ -1,7 +1,6 @@
 import os, sys
 sys.path.append("..")
 from riemann import RiemannClient
-from riemann.gevent_transport import RiemannGEventTCPTransport
 import time
 
 def main():
