@@ -1,7 +1,7 @@
 PyRiemann - Riemann (http://aphyr.github.com/riemann/) Client for Python
 
 This is a work in progress. Basically it's sending messages and queries for now.
-Check the example directory for both tcp and udp samples.
+Check the example directory for both tcp and udp samples. there's a port of riemann-check to python using the psutil library.
 
 No need to create the protocol buffer classes, but in any case I've put a Makefile and a copy of proto.proto in the protobuf folder
 

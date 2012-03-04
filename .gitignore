@@ -1,0 +1,6 @@
+*.pyc
+*.swp
+*~
+build
+dist
+mure.egg-info
