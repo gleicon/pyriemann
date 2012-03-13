@@ -5,8 +5,8 @@ Check the example directory for both tcp and udp samples. there's a port of riem
 
 No need to create the protocol buffer classes, but in any case I've put a Makefile and a copy of proto.proto in the protobuf folder
 
-TODO: gevent transport and async reponses, connection pool, twisted port (all of them really easy as the protocol is simple)
-
+TODO: async reponses, connection pool, twisted port (all of them really easy as the protocol is simple)
+The twisted driver is work in progress
 
 Gleicon 2012
 
