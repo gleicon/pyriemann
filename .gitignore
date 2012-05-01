@@ -3,4 +3,4 @@
 *~
 build
 dist
-mure.egg-info
+*.egg-info
