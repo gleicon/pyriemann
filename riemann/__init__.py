@@ -50,7 +50,7 @@ class RiemannClient():
     for e in res.events: print e.host
     """
     def __init__(self, host='127.0.0.1', port=5555, transport=RiemannTCPTransport):
-        self._fields = ['description', 'host', 'metric_f', 'service', 'state', 'tags', 'time', 'ttl']
+        self._fields = ['description', 'host', 'metric_f', 'service', 'state', 'time', 'ttl']
         self._host = host
         self._port = port
         self._transport = transport(host=host, port=port)
@@ -59,6 +59,8 @@ class RiemannClient():
         ev = pb.Event()
         for k in self._fields:
             if edict.has_key(k): setattr(ev, k, edict[k]) 
+        if 'tags' in edict:
+            ev.tags.extend(edict['tags'])
         msg = pb.Msg()
         msg.events.extend([ev])
         b = msg.SerializeToString()
