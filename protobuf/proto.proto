@@ -1,6 +1,11 @@
-option java_package = "riemann";
+// Verbatim copy from riemann-java-client/src/main/proto/riemann/proto.proto
+// as of commit-id bc94e4512e10e63eacaa3b512560988e6763f801
+
+option java_package = "io.riemann.riemann";
 option java_outer_classname = "Proto";
 
+// Deprecated; state was used by early versions of the protocol, but not any
+// more.
 message State {
   optional int64 time = 1;
   optional string state = 2;
@@ -10,7 +15,6 @@ message State {
   optional bool once = 6;
   repeated string tags = 7;
   optional float ttl = 8;
-  optional float metric_f = 15;
 }
 
 message Event {
@@ -21,6 +25,10 @@ message Event {
   optional string description = 5;
   repeated string tags = 7;
   optional float ttl = 8;
+  repeated Attribute attributes = 9;
+
+  optional sint64 metric_sint64 = 13;
+  optional double metric_d = 14;
   optional float metric_f = 15;
 }
 
@@ -34,4 +42,9 @@ message Msg {
   repeated State states = 4;
   optional Query query = 5;
   repeated Event events = 6;
+}
+
+message Attribute {
+  required string key = 1;
+  optional string value = 2;
 }

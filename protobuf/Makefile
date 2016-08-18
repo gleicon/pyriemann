@@ -1,5 +1,5 @@
 
-PROTOC=/usr/local/bin/protoc
+PROTOC=/usr/bin/protoc
 MV = /bin/mv
 
 protobuf:
