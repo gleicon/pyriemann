@@ -8,7 +8,7 @@ log.set_threshold(log.INFO)
 
 setup(
         name            = "pyriemann",
-        version         = "0.1",
+        version         = "0.2",
 
         packages        = ['riemann', 'riemann.pb'],
         zip_safe = False,
@@ -22,5 +22,9 @@ setup(
         keywords        = "events reimann",
         description     = "python driver for riemann",
         url             = "https://github.com/gleicon/pyriemann",
+        license         = "MIT",
+        long_description = "pyriemann implements a Python client for Riemann, the network monitoring tool.\n" +
+        "It requires protobuf-python, allowing you to send packets in either TCP or UDP.\n" +
+        "Support for queries and events comes natively.\n",
     )
 

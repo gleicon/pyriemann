@@ -1,0 +1,10 @@
+Version 0.2 - Aug 18, 2016
+ - Created Makefile to add --require protobuf-python when building RPMs
+   Dependency met in upstream RHEL7 repositories
+ - Updated Protobuf protocol definition with later Riemann additions
+ - Support attributes on messages
+ - Introduced send-riemann-events.py as example, works out-of-the-box
+
+Version 0.1  - Mar 4-May 3, 2012
+Initial version by Gleicon Moraes (gleicon) with patches Steve Losh (sjl).
+
