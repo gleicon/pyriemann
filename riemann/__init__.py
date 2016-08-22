@@ -66,12 +66,9 @@ class RiemannClient():
                 setattr(attrib, 'key', k)
                 setattr(attrib, 'value', edict['attributes'][k])
                 attrs.append(attrib)
-            print(repr(attrs))
             ev.attributes.extend(attrs)
-            print(repr(ev))
         if 'tags' in edict:
             ev.tags.extend(edict['tags'])
-            print(repr(ev))
         if 'metric' in edict:
             ev.metric_f = float(edict['metric'])
         msg = pb.Msg()
